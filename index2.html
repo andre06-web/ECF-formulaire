@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+	<head>
+  <title>Formulaire de contact responsive</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script>
+function validateForm() {
+
+ if (document.forms["monForm"]["email"].value == "") {
+    alert("Veuillez remplir le champ email !");
+document.getElementById("email").className = "erreur";
+    return false;
+  }
+  
+
+  
+      else if (document.forms["monForm"]["sujet"].value == "") {
+    alert("Veuillez remplir le champ sujet !");
+document.getElementById("sujet").className = "erreur";
+    return false;
+  }
+  
+        else if (document.forms["monForm"]["message"].value == "") {
+    alert("Veuillez remplir le champ message !");
+document.getElementById("message").className = "erreur";
+    return false;
+  }
+
+
+  else if (document.getElementById("myCheck").checked==false) {
+      
+          alert("Veuillez cocher la case si vous n'êtes pas un robot !");
+document.getElementById("myCheck").className = "checkbox-erreur";
+    return false;
+  }
+  
+  /*
+    else if (document.getElementById("price").value != 100) {
+      
+          alert("Veuillez déplacer le bouton tout à droite !"+ document.getElementById("price").value);
+
+    return false;
+  }
+  */
+  
+  
+  
+  
+}
+
+function slidetest(valeur){
+
+if (valeur==100){
+
+alert("C'est bon !");
+
+}
+
+else {
+
+alert("C'est pas bon !");
+
+}
+
+}
+</script>
+<style>
+
+body {
+background-color: #ff7700;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='100 0 1600 800'%3E%3Cpolygon fill='%23cc0000' points='957 450 539 900 1396 900'/%3E%3Cpolygon fill='%23aa0000' points='957 450 872.9 900 1396 900'/%3E%3Cpolygon fill='%23d6002b' points='-60 900 398 662 816 900'/%3E%3Cpolygon fill='%23b10022' points='337 900 398 662 816 900'/%3E%3Cpolygon fill='%23d9004b' points='1203 546 1552 900 876 900'/%3E%3Cpolygon fill='%23b2003d' points='1203 546 1552 900 1162 900'/%3E%3Cpolygon fill='%23d3006c' points='641 695 886 900 367 900'/%3E%3Cpolygon fill='%23ac0057' points='587 900 641 695 886 900'/%3E%3Cpolygon fill='%23c4008c' points='1710 900 1401 632 1096 900'/%3E%3Cpolygon fill='%239e0071' points='1710 900 1401 632 1365 900'/%3E%3Cpolygon fill='%23aa00aa' points='1210 900 971 687 725 900'/%3E%3Cpolygon fill='%23880088' points='943 900 1210 900 971 687'/%3E%3C/svg%3E");
+background-attachment: fixed;
+background-size: cover;
+
+}
+
+
+
+.container {
+    width:95%;
+    max-width:750px;
+    border:3px dashed red;
+    margin:20px;
+    padding:20px;
+    border-radius:10px;
+}
+
+.w3c {
+       margin-left:20px; 
+}
+
+input[type=text],input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=email]:invalid {
+  background-color:orange;
+  border: 2px solid red;
+}
+
+.erreur {
+    background-color:orange;
+}
+
+.checkbox-erreur {
+   border:2px solid #2196F3;
+}
+
+textarea {
+    
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: blue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left:20% ;
+  margin-right:20% ;
+}
+
+input[type=submit]:hover {
+  background-color: navy;
+}
+
+.mydiv {
+  width:650px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+
+}
+
+button {
+font-size:20px;
+border:0px;
+/* border-left:1px solid silver ; */
+}
+
+.envoi {
+    width:200px;
+}
+
+.reset {
+    margin-left:20px;
+}
+
+
+.gras {
+font-weight:bold;
+font-family: Georgia, Verdana, sans-serif;
+}
+
+.souligne {
+ text-decoration: underline;
+ font-weight:bold;
+}
+
+#barre {
+background:transparent;
+margin-bottom:	0px;
+
+}
+</style>
+<body>
+
+<iframe id="myIframe" style="display:none;"></iframe>
+
+<div class="container">
+  <h2>Vanilla Mail</h2>
+  <p></p>
+  <form name="monForm" action="sendmail2.php" method="post" onsubmit="return validateForm()">
+
+        <div class="row">
+        
+      <div class="col">
+
+    <input type="email" id="email" name="email" placeholder="email du destinaire.." multiple >
+      </div>
+      
+      
+    </div>
+    
+      <div class="row"> 
+      
+       <div class="col">
+ 
+    <input type="text" id="sujet" name="sujet" placeholder="l'objet ici.." >
+     </div>
+     
+      </div>
+      
+            <div class="row"> 
+      
+       <div class="col">
+ 
+    <textarea id="message" name="message" placeholder="ici le message.." rows="5"></textarea>
+     </div>
+     
+      </div>
+    
+    <input type="checkbox" id="myCheck" name="myCheck"><span> Veuillez cocher cette case si vous n'êtes pas un robot</span><br><br>
+    
+    <!--label for="price">Veuillez déplacer le curseur tout à droite :</label>
+<input type="range" name="price" id="price" min="0" max="100" step="10" value="0" onchange="slidetest(this.value)"><br-->
+    
+    <button type="submit" class="btn btn-primary mt-3 envoi"> ENVOYER </button>
+    <button type="reset" class="btn btn-success mt-3 reset"> Reset </button>
+  </form>
+</div>
+ 
+<p class="w3c">
+        <a href="https://validator.w3.org/nu/?doc=https://kyodesign.fr/formulaire/index.html" target="_blank">
+        <img style="border:0;width:88px;height:31px"
+            src="img/w3c-html5-validator.png"
+            alt="W3C HTML5 Validator">
+    </a>
+    <a href="https://jigsaw.w3.org/css-validator/validator?uri=https://kyodesign.fr/formulaire/index.html&amp;lang=fr" target="_blank">
+        <img style="border:0;width:88px;height:31px"
+            src="https://jigsaw.w3.org/css-validator/images/vcss"
+            alt="W3C CSS Validator">
+    </a>
+    
+    
+    
+</p>
+
+<script>
+        
+ /* Mon super script Vanilla editor pour faire la mise en forme HTML du texte comme WordPress */
+ /* Vectoriel et responsive, il fait en 10 lignes ce que les autres tebé font en 1000+ lignes */
+        
+        
+        function gras () {
+            document.execCommand ('bold', false, null);
+        }
+        
+        function italique () {
+            document.execCommand ('italic', false, null);
+        }
+        
+        function souligne () {
+            document.execCommand ('underline', false, null);
+        }
+        
+        
+        function italique () {
+            document.execCommand ('italic', false, null);
+        }
+        
+        
+        function Souligne () {
+            document.execCommand ('underline', false, null);
+        }
+        
+        function gauche() {
+            document.execCommand ('justifyLeft', false, null);
+        }
+        
+        function centre() {
+            document.execCommand ('justifyCenter', false, null);
+        }
+        
+        
+        function droite() {
+            document.execCommand ('justifyRight', false, null);
+        }
+       
+        function changeColor() {
+           var coul =   document.getElementById("ColorPicker1").value;
+           
+           document.execCommand('ForeColor', false, coul);
+           
+        }
+        
+        function envoiForm() {
+            
+        var texte = document.getElementById("mydiv").innerHTML ;
+        
+        document.getElementById("description").value = texte;
+            
+}
+        
+</script>   
+
+ <!--script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+   function onSubmit(token) {
+     document.getElementById("demo-form").submit();
+   }
+ </script>
+ <script src="https://www.google.com/recaptcha/api.js?render=6Lcrj6sbAAAAAFa3vfiyiYj07IL18tlUkveTSB7C"></script>
+    <script>
+      function onClick(e) {
+        e.preventDefault();
+        grecaptcha.ready(function() {
+          grecaptcha.execute('6Lcrj6sbAAAAAFa3vfiyiYj07IL18tlUkveTSB7C', {action: 'submit'}).then(function(token) {
+              // Add your logic to submit to your backend server here.
+          });
+        });
+      }
+  </script-->
+</body>
+</html>
+
+
+
